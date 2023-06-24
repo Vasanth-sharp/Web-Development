@@ -1,0 +1,34 @@
+body{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,102,121,1) 55%, rgba(255,0,176,1) 100%);
+}
+
+.container{
+    width:300px;
+    margin: 230px auto 25px;
+    font-size:22px;
+    border: 1px solid white;
+    padding:20px;
+    border-radius: 9px;
+}
+.container h2{
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    color:aliceblue
+}
+
+#days{
+    text-align: center;
+    margin-bottom: 10px;
+    color: white;
+    font-size: 22px;
+}
+
+.wrap{
+    text-align: center;
+    margin-top: 16px;
+    color: white;
+}
+
