@@ -1,0 +1,76 @@
+body{
+    background-color: rgb(181, 200, 218);
+    overflow: hidden;
+}
+
+.truck{
+    height: 250px;
+    width: 250px;
+    position: absolute;
+    top:430px;
+    animation-name: truck-simulate;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes truck-simulate {
+    from{
+        transform: translateX(-200px);
+    }
+    to{
+        transform: translateX(1400px);
+    }
+    
+}
+
+.cloud{
+    position: absolute;
+    top:20px;
+    right:0px;
+    animation-name: scloud;
+    animation-duration: 40s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    opacity: .8;
+}
+
+@keyframes scloud {
+    from{
+        right:-200px;
+    }
+    to{
+        right:1000px;
+    }
+
+}
+.lcloud{
+    position: absolute;
+    top:100px;
+    right:0px;
+    width: 350px;
+    animation-name: lcloud;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes lcloud {
+    from{
+        right:-200px;
+    }
+    to{
+        right:1400px;
+    }
+}
+
+.sun{
+    width: 150px;
+    height: 150px;
+    background-color: orange;
+    border-radius: 50%;
+    position: absolute;
+    top:50px;
+    left:20px;
+    z-index: -1;
+}
