@@ -1,0 +1,102 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+    overflow-x: hidden;
+}
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(163, 157, 157, 0.986);
+    width: 100vw;
+}
+h3>a{
+    color: white;
+}
+h3>a:hover{
+    color: blue;
+    transition-duration: 0.7s;
+}
+
+#nav > ul{
+    display: flex;
+    justify-content: flex-start;
+}
+
+#ul li{
+    list-style: none;
+    margin: 4px;
+    color: white;
+}
+
+li:hover{
+    color: blue;
+    transition-duration: 0.7s;
+}
+
+.btn button{
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 8px;
+    border-style: none;
+    background-color:blueviolet ;
+    transition: .7s;
+}
+.btn button:hover{
+    background-color: rgb(168, 96, 235);
+    transition-duration: .7s;
+}
+
+
+footer{
+    border: 1px solid blue;
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(163, 157, 157, 0.986);
+    /* position: absolute;
+    bottom: 0px;
+    width: 100vw; */
+}
+
+ul{
+    list-style: none;
+    display: flex;
+}
+
+ul li{
+    margin: 4px;
+    color: white;
+}
+
+h3{
+    color: white;
+}
+
+.gallery div{
+    width: 200px;
+    height: 200px;
+    margin: 5px;
+    opacity: 0.5;
+    transition: opacity transform;
+    transition-duration: .7s;
+}
+
+.gallery div img{
+    width: 100%;
+    height: 100%;
+}
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.gallery div:hover{
+    opacity: 1;
+    transform: scale(1.2);
+    transition-duration:.7s;
+}
