@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thirukural</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Poppins&display=swap");
+      body {
+        font-family: "Poppins", sans-serif;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        background-color: #D5F0C1;
+      }
+      form{
+        height: 250px;
+        width: 350px;
+        background-color:  #AAD9BB;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        box-shadow: 0px 0px 10px black;
+        box-sizing: border-box;
+      }
+      h3{
+        font-family: 'Cinzel Decorative', serif;
+        letter-spacing: 1px;
+        text-transform: capitalize;
+        word-spacing: 3px;
+      }
+      input{
+        height: 30px;
+        width: 230px;
+        outline: none;
+        border-radius: 4px;
+        border: none;
+        box-sizing: border-box;
+        padding: 3px;
+      }
+      input:focus{
+        border: 1px groove green;
+        box-shadow: 0px 0px 2px greenyellow;
+        border-radius: 4px;
+      }
+      input::placeholder{
+        color: green;
+      }
+      .btn{
+       display: flex;
+       gap:10px; 
+      }
+      button{
+        border-radius: 4px;
+        border: none;
+        height: 30px;
+        width: 100px;
+        text-align: center;
+        padding: 3px;
+        background-color: #80BCBD;
+        color: black;
+        font-family: 'Cinzel Decorative', serif;
+        font-weight: 600;
+        letter-spacing: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <h3>Thirukural finder</h3>
+      <input type="number" maxlength="1330" minlength="1" id="text" placeholder="Kural..."/>
+      <div class="btn">
+        <button id="find" onclick="handleFind(event)">Find</button>
+        <button id="random" onclick="handleRandom(event)">Random</button>
+      </div>
+      <div id="results">
+        <p class="result"></p>
+        <p class="result"></p>
+      </div>
+    </form>
+    <script>
+      const handleFind = (event) => {
+        event.preventDefault();
+        const number = document.getElementById("text");
+        if (number.value > 0 && number.value <= 1330) {
+          const result = document.getElementsByClassName("result");
+          fetch(
+            `https://getthirukkural.appspot.com/api/3.0/kural/${number.value}?appid=v8b1clfm65lla&format=json`
+          )
+            .then((res) => res.json())
+            .then((res) => {
+              result[0].innerHTML = res.line1;
+              result[1].innerHTML = res.line2;
+            });
+        } else {
+          number.style.borderColor = "red";
+          number.style.borderWidth = "2px";
+          alert("it cannot be greater than 1330");
+        }
+      };
+
+      const handleRandom = (event) => {
+        event.preventDefault();
+        const random = Math.floor(Math.random() * 1330) + 1;
+        const result = document.getElementsByClassName("result");
+        fetch(
+          `https://getthirukkural.appspot.com/api/3.0/kural/${random}?appid=v8b1clfm65lla&format=json`
+        )
+          .then((res) => res.json())
+          .then((res) => {
+            result[0].innerHTML = res.line1;
+            result[1].innerHTML = res.line2;
+          });
+      };
+    </script>
+  </body>
+</html>

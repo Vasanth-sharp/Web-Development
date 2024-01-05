@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speak</title>
+    <link rel="shortcut icon" href="asset/businessman.png" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Poppins:wght@300;400&display=swap');
+        body{
+            background-image: url(asset/peakpx.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        form{
+            height: 300px;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+            border-radius: 10px;
+            background-color: transparent;
+            backdrop-filter: blur(10px);
+            box-shadow: 0px 0px 10px black;
+            /* transition: transform .5s; */
+        }
+        /* form:hover{
+            transition: transform;
+            transition-duration: .5s;
+            transform: scale(1.077);
+            box-shadow: 0px 0px 20px black;
+        } */
+        label{
+            font-family: 'Poppins', sans-serif;
+            color: white; 
+            font-weight: 300;
+            letter-spacing: 1px;
+
+       }
+       h3{
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 40px;
+        background-image: url(asset/peakpx2.jpg);
+        color: transparent;
+        background-repeat: no-repeat;
+        background-size: cover;
+        letter-spacing: 3px;
+        background-clip:text ;
+       }
+       h3:hover{
+        background-image: url(asset/peakpx.jpg);
+       }
+       label{
+        align-self:flex-start;
+        margin-left: 25px;
+       }
+       button{
+        height: 30px;
+        width: 50%;
+        outline: none;
+        color: white;
+        background-color: gray;
+        border-radius: 7px;
+        border: none;
+        box-shadow: 0px 0px 10px black;
+       }
+       button:hover{
+        cursor: pointer;
+       }
+        input{
+            outline: none;
+            border: 1px solid rgb(12, 12, 12);
+            width: 85%;
+            height: 25px;
+            border-radius: 6px;
+            padding: 2px;
+            box-shadow: 0px 0px 4px black;
+        }
+        input:invalid{
+            border: 2px solid red;
+            animation-name: shake;
+            animation-duration: .2s;
+            animation-iteration-count: 3;
+        }
+
+        input:focus{
+            box-shadow: 0px 0px 30px gray;
+        }
+        @keyframes shake {
+            0%{
+               transform: rotate(1deg);
+            }
+            50%{
+                transform: rotate(-1deg);
+            }
+            100%{
+                transform: rotate(1deg);
+
+            }
+        }
+        @media only screen and (max-width: 600px) {
+            body{
+                background: url(asset/peakpx3.jpg);
+                background-repeat:no-repeat ;
+                background-size: cover;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form onsubmit="handleSubmit(event)">
+        <h3>Text</h3>
+        <label for="text">Text</label>
+        <input type="text" id="text" pattern="[A-Za-z]+">
+        <button type="submit">Speak</button>
+    </form>
+    <script>
+        const handleSubmit=(event)=>{
+            event.preventDefault();
+           const text=document.getElementById("text").value;
+           const utterance=new SpeechSynthesisUtterance(text);
+           window.speechSynthesis.speak(utterance);
+        }
+    </script>
+</body>
+</html>
